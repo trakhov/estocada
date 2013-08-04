@@ -9,6 +9,7 @@ describe "UserPages" do
 
 		it { should have_content 'Регистрация' }
 		it { should have_title 'Регистрация' }
+		it { should have_selector 'h1', text: 'Регистрация' }
   end
 
 end
