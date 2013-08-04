@@ -1,7 +1,7 @@
 Estocada::Application.routes.draw do
-  root "static_pages#home"
+  resources :users
 
-  get "users/new" 
+  root "static_pages#home"
   get "/signup", to: 'users#new'
 
 end
