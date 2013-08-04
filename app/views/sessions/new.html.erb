@@ -1,0 +1,20 @@
+<% provide :title, 'Вход' %>
+<h1>Вход</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(:session, url: sessions_path) do |f| %>
+			<p><%= f.email_field :email, placeholder: 'Электронная почта' %></p>
+			<p><%= f.password_field :password, placeholder: 'Пароль' %></p>
+			<p><%= f.submit 'Войти', class: 'btn btn-primary' %></p>
+		<% end -%>
+
+<!-- 		<%= form_tag sessions_path do %>
+			<p><%= email_field_tag '', nil, placeholder: 'Электронная почта' %></p>
+			<p><%= password_field_tag '', nil, placeholder: 'Пароль' %></p>
+			<p><%= submit_tag 'Войти', class: 'btn btn-primary' %></p>
+		<% end -%> -->
+
+		<p>Впервые здесь? <%= link_to 'Пополнить наши плотные ряды!', signup_path %></p>
+	</div>
+</div>

@@ -8,11 +8,11 @@
 			<%= render 'shared/error_messages' %>
 
 			<p><%= f.text_field :name, placeholder: 'Имя Фамилия' %></p>
-			<p><%= f.text_field :email, placeholder: 'Электронная почта' %></p>
+			<p><%= f.email_field :email, placeholder: 'Электронная почта' %></p>
 			<p><%= f.password_field :password, placeholder: 'Пароль' %></p>
 			<p><%= f.password_field :password_confirmation, placeholder: 'Подтверждение пароля' %></p>
 
-			<%= f.submit 'Пополнить ряды', class: 'btn btn-large btn-primary' %>
+			<%= f.submit 'Пополнить ряды', class: 'btn btn-primary' %>
 		<% end -%>
 	</div>
 </div>

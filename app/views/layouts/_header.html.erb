@@ -3,14 +3,31 @@
 	<div class="container">
 		<%= link_to "Estocada", root_path, id: "logo", class: "brand" %>
 		<nav>
-				<%= form_tag '#', class: "navbar-search" do %>
-					<%= text_field_tag :q, nil, placeholder: "Поиск", 
-																			class: "pull-left search-query" %>
+				<ul class="nav pull-right">
+				<% if signed_in? %>
+					<%= form_tag '#', class: "navbar-search" do %>
+						<%= text_field_tag :q, nil, placeholder: "Поиск", 
+																				class: "pull-left search-query" %>
+					<% end -%>
+
+					<li><%= link_to "Новости",		'#' %></li>
+					<li><%= link_to "Мероприятия",	'#' %></li>
+					<li><%= link_to "Успеваемость",	'#' %></li>		
+					<li id="fat-menu" class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<%= current_user.name.split(' ')[0] %>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><%= link_to 'Профиль', current_user %></li>
+							<li><%= link_to 'Настройки', '#' %></li>
+							<li class="divider"></li>
+							<li><%= link_to 'Выйти', signout_path, method: 'delete' %></li>
+						</ul>
+					</li>
+				<% else %>
+					<li><%= link_to 'Войти', signin_path %></li>
 				<% end -%>
-			<ul class="nav pull-right">
-				<li><%= link_to "Новости",		'#' %></li>
-				<li><%= link_to "Мероприятия",	'#' %></li>
-				<li><%= link_to "Успеваемость",	'#' %></li>				
 			</ul>
 		</nav>
 	</div>
