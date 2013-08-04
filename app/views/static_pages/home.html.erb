@@ -1,11 +1,24 @@
 <% provide :title, 'Кабинет' %>
 
-<div class="center hero-unit">
+<div class="center hero-unit main">
 	<h1>Estocada</h1>
-	<h3><em>место, где можно узнать почти все…</em></h3>
+	<!-- <h3><em>место, где можно узнать почти все…</em></h3> -->
 
 	<%= link_to "Зарегистрироваться", signup_path, class: "btn btn-large btn-primary" %>
 	<%= link_to "Войти", '#', class: "btn btn-large" %>
 </div>
 
-<%= link_to image_tag 'logo.jpg', alt: "Estocada", width: '100px' %>
+<ul class="thumbnails">
+	<li class="span3">
+		<%= link_to (image_tag 'logo.png', alt: ''), '#', class: 'thumbnail' %>
+	</li>
+	<li class="span3">
+		<%= link_to (image_tag 'logo.png', alt: ''), '#', class: 'thumbnail' %>
+	</li>
+	<li class="span3">
+		<%= link_to (image_tag 'logo.png', alt: ''), '#', class: 'thumbnail' %>
+	</li>
+	<li class="span3">
+		<%= link_to (image_tag 'logo.png', alt: ''), '#', class: 'thumbnail' %>
+	</li>
+</ul>
