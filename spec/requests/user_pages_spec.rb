@@ -15,7 +15,10 @@ describe "UserPages" do
   describe 'profile page' do
   	let(:user) { FactoryGirl.create(:user) }
 
-  	before { visit user_path user }
+  	before do
+      sign_in user
+      visit user_path user
+    end
 
   	it { should have_content user.name }
   	it { should have_title user.name }
@@ -54,5 +57,43 @@ describe "UserPages" do
     end
   end
 
+  describe 'edit' do
+    let(:user) {FactoryGirl.create(:user)}
+    before do
+      sign_in user
+      visit edit_user_path(user)
+    end
+
+    describe 'page' do
+      it { should have_content 'Настройки'}
+      it { should have_title 'Настройки'}
+    end
+
+    describe 'with invalid info' do
+      before {click_button 'Сохранить'}
+
+      it {should have_content 'внимание'}
+      it {should have_selector 'div.alert.alert-error'}
+    end
+
+    describe 'with valid info' do
+      let(:new_name) {"Освальд Иерихонович Брю"}
+      let(:new_email) {"osvald@mail.ru"}      
+
+      before do
+        fill_in 'Имя Фамилия', with: new_name
+        fill_in 'Электронная почта', with: new_email
+        fill_in 'Новый пароль', with: 'newpassword'
+        fill_in 'Подтверждение пароля', with: 'newpassword'
+        click_button 'Сохранить'
+      end
+
+      it {should have_title new_name}
+      it {should have_selector 'div.alert.alert-success'}
+      it {should have_link 'Выйти'}
+      specify {expect(user.reload.name).to eq new_name}
+      specify {expect(user.reload.email).to eq new_email}
+    end
+  end
 
 end

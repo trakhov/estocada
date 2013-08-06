@@ -3,16 +3,6 @@
 
 <div class="row">
 	<div class="span6 offset3">
-		<%= form_for(@user) do |f| %>
-
-			<%= render 'shared/error_messages' %>
-
-			<p><%= f.text_field :name, placeholder: 'Имя Фамилия' %></p>
-			<p><%= f.email_field :email, placeholder: 'Электронная почта' %></p>
-			<p><%= f.password_field :password, placeholder: 'Пароль' %></p>
-			<p><%= f.password_field :password_confirmation, placeholder: 'Подтверждение пароля' %></p>
-
-			<%= f.submit 'Пополнить ряды', class: 'btn btn-primary' %>
-		<% end -%>
+		<%= render 'user_form', submit_text: 'Пополнить ряды', placeholder: 'Пароль' %>
 	</div>
 </div>
