@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
 	before_save { self.email.downcase! }
 	before_create :create_remember_token
 
@@ -16,6 +17,11 @@ class User < ActiveRecord::Base
 	validates :password, length: {minimum: 6}
 
 	has_secure_password
+	
+	has_attached_file :avatar, styles: {medium: '300x300', thumb: '100x100'},
+															default_url: '/missing.gif'
+
+	
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64

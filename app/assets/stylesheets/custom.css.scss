@@ -189,3 +189,20 @@ input.search-query {
 	@extend .control-group;
 	@extend .error;
 }
+
+
+/* avatar */
+
+.avatar-medium {
+	-moz-border-radius: 150px;
+	-o-border-radius: 150px;
+	-webkit-border-radius: 150px;
+	border-radius: 150px;
+}
+
+.avatar-thumb {
+	-moz-border-radius: 50px;
+	-o-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}

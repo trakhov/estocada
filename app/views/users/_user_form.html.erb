@@ -6,6 +6,9 @@
 	<p><%= f.email_field :email, placeholder: 'Электронная почта' %></p>
 	<p><%= f.password_field :password, placeholder: placeholder %></p>
 	<p><%= f.password_field :password_confirmation, placeholder: 'Подтверждение пароля' %></p>
+	<% if !@user.new_record? %>
+		<p><%= f.file_field :avatar %></p>
+	<% end -%>
 
 	<%= f.submit submit_text, class: 'btn btn-primary' %>
 <% end -%>
